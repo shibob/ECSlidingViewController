@@ -43,7 +43,7 @@
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *topViewController = [transitionContext viewControllerForKey:ECTransitionContextTopViewControllerKey];
-    UIViewController *toViewController  = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController *toViewController  = [transitionanimateTransitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *containerView = [transitionContext containerView];
     CGRect topViewInitialFrame = [transitionContext initialFrameForViewController:topViewController];
     CGRect topViewFinalFrame   = [transitionContext finalFrameForViewController:topViewController];
@@ -62,10 +62,6 @@
         if (self.coordinatorAnimations) self.coordinatorAnimations((id<UIViewControllerTransitionCoordinatorContext>)transitionContext);
         topViewController.view.frame = topViewFinalFrame;
     } completion:^(BOOL finished) {
-        if ([transitionContext transitionWasCancelled]) {
-            topViewController.view.frame = [transitionContext initialFrameForViewController:topViewController];
-        }
-        
         if (self.coordinatorCompletion) self.coordinatorCompletion((id<UIViewControllerTransitionCoordinatorContext>)transitionContext);
         [transitionContext completeTransition:finished];
     }];
