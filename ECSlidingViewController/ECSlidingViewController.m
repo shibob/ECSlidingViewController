@@ -813,6 +813,8 @@
 
 - (void)cancelInteractiveTransition {
     _transitionWasCancelled = YES;
+    [self.topViewController.view.layer removeAllAnimations];
+    self.topViewController.view.frame = [self initialFrameForViewController:self.topViewController];
 }
 
 - (void)completeTransition:(BOOL)didComplete {
