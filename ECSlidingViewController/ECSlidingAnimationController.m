@@ -43,7 +43,7 @@
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *topViewController = [transitionContext viewControllerForKey:ECTransitionContextTopViewControllerKey];
-    UIViewController *toViewController  = [transitionanimateTransitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController *toViewController  = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *containerView = [transitionContext containerView];
     CGRect topViewInitialFrame = [transitionContext initialFrameForViewController:topViewController];
     CGRect topViewFinalFrame   = [transitionContext finalFrameForViewController:topViewController];
