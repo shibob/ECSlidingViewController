@@ -38,7 +38,7 @@
 @property (nonatomic, assign) CGFloat currentAnimationPercentage;
 @property (nonatomic, assign) BOOL preserveLeftPeekAmount;
 @property (nonatomic, assign) BOOL preserveRightPeekAmount;
-@property (nonatomic, assign) BOOL transitionWasCancelled;
+@property (nonatomic, assign) BOOL transitionWasCancelled;setNeedsStatusBarAppearanceUpdate
 @property (nonatomic, assign) BOOL isAnimated;
 @property (nonatomic, assign) BOOL isInteractive;
 @property (nonatomic, assign) BOOL transitionInProgress;
@@ -862,7 +862,9 @@
     self.transitionInProgress        = NO;
     self.view.userInteractionEnabled = YES;
     [UIViewController attemptRotationToDeviceOrientation];
-    [self setNeedsStatusBarAppearanceUpdate];
+    [UIView animateWithDuration:0.35 animations:^{
+        [self setNeedsStatusBarAppearanceUpdate];
+    }];
 }
 
 - (UIViewController *)viewControllerForKey:(NSString *)key {
